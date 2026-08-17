@@ -14,7 +14,7 @@
   const unlockForm = $("#unlockForm");
   const passwordInput = $("#password");
   const passwordError = $("#passwordError");
-  const music = $("#Music");
+  const music = $("#music");
 
   let timerId = null;
   let unlocked = false;
