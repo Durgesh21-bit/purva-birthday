@@ -61,7 +61,7 @@
   }
 
   function updateCountdown() {
-    const now = new Date("2026-09-02T12:00:00");
+   const now = new Date("2026-09-02T12:00:00");
 
     if (isBirthdayAvailable(now)) {
       showBirthday();
