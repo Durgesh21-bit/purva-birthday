@@ -193,27 +193,50 @@
   }
 
 function setupMusic() {
-  const buttons = [$("#musicButton"), $("#birthdayMusicButton")].filter(Boolean);
+  const buttons = [
+    $("#musicButton"),
+    $("#birthdayMusicButton")
+  ].filter(Boolean);
 
-  const toggle = async () => {
-    if (music.paused) {
-      try {
-        await music.play();
-        buttons.forEach(btn => btn.textContent = "❚❚");
-      } catch (error) {
-        console.error("Music playback failed:", error);
-        buttons.forEach(btn => btn.textContent = "♫");
-      }
-    } else {
-      music.pause();
-      buttons.forEach(btn => btn.textContent = "♫");
-    }
+  if (!music || !buttons.length) return;
+
+  const updateButtons = () => {
+    const playing = !music.paused;
+
+    buttons.forEach(btn => {
+      btn.textContent = playing ? "❚❚" : "♫";
+      btn.setAttribute(
+        "aria-label",
+        playing ? "Pause music" : "Play music"
+      );
+    });
   };
 
-  buttons.forEach(btn => btn.addEventListener("click", toggle));
-  music.addEventListener("ended", () => {
-    buttons.forEach(btn => btn.textContent = "♫");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      try {
+        if (music.paused) {
+          music.currentTime = music.currentTime || 0;
+          await music.play();
+        } else {
+          music.pause();
+        }
+
+        updateButtons();
+      } catch (error) {
+        console.error("Music playback failed:", error);
+        updateButtons();
+      }
+    });
   });
+
+  music.addEventListener("play", updateButtons);
+  music.addEventListener("pause", updateButtons);
+  music.addEventListener("ended", updateButtons);
+
+  updateButtons();
 }
 
 setupGallery();
