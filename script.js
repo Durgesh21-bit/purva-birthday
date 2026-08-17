@@ -192,27 +192,30 @@
     $("#lightboxImage").src = "";
   }
 
-  function setupMusic() {
-    const buttons = [$("#musicButton"), $("#birthdayMusicButton")].filter(Boolean);
+ function setupMusic() {
+  const buttons = [$("#musicButton"), $("#birthdayMusicButton")].filter(Boolean);
 
-    const toggle = async () => {
-      if (music.paused) {
-        try {
-          await music.play();
-          buttons.forEach(btn => btn.textContent = "❚❚");
-        } catch {
-          buttons.forEach(btn => btn.textContent = "♫");
-        }
-      } else {
-        music.pause();
+  const toggle = async () => {
+    if (music.paused) {
+      try {
+        await music.play();
+        buttons.forEach(btn => btn.textContent = "❚❚");
+      } catch (error) {
+        console.error("Music playback failed:", error);
         buttons.forEach(btn => btn.textContent = "♫");
       }
-    };
+    } else {
+      music.pause();
+      buttons.forEach(btn => btn.textContent = "♫");
+    }
+  };
 
-    buttons.forEach(btn => btn.addEventListener("click", toggle));
-    music.addEventListener("ended", () => buttons.forEach(btn => btn.textContent = "♫"));
-  }
+  buttons.forEach(btn => btn.addEventListener("click", toggle));
+  music.addEventListener("ended", () => {
+    buttons.forEach(btn => btn.textContent = "♫");
+  });
+}
 
-  setupGallery();
-  setupMusic();
+setupGallery();
+setupMusic();
 })();
