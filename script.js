@@ -192,7 +192,7 @@
     $("#lightboxImage").src = "";
   }
 
- function setupMusic() {
+function setupMusic() {
   const buttons = [$("#musicButton"), $("#birthdayMusicButton")].filter(Boolean);
 
   const toggle = async () => {
