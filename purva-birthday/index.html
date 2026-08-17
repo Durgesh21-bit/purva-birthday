@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160b18">
+  <meta name="description" content="A private birthday surprise for Purva.">
+  <title>A Little Surprise for Purva ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="ambient" class="ambient" aria-hidden="true"></div>
+
+  <main>
+    <section id="lockScreen" class="screen lock-screen" aria-labelledby="lockTitle">
+      <div class="glow glow-one"></div>
+      <div class="glow glow-two"></div>
+      <div class="lock-card glass">
+        <div class="lock-orbit" aria-hidden="true">
+          <span class="lock-icon">♡</span>
+        </div>
+        <p class="eyebrow">A private little world</p>
+        <h1 id="lockTitle">A Little Surprise for Purva <span>❤️</span></h1>
+        <p class="lead">This little world is only for you...</p>
+
+        <form id="unlockForm" novalidate>
+          <label class="sr-only" for="password">Secret password</label>
+          <input id="password" name="password" type="password" inputmode="numeric"
+                 autocomplete="off" maxlength="4" placeholder="Enter the secret"
+                 aria-describedby="passwordError" required>
+          <button class="primary-btn" type="submit">Unlock My Heart <span>❤️</span></button>
+          <p id="passwordError" class="form-message" role="alert" aria-live="polite"></p>
+        </form>
+
+        <p class="tiny-note">Made with love, just for you.</p>
+      </div>
+    </section>
+
+    <section id="countdownScreen" class="hidden" aria-labelledby="countdownTitle">
+      <header class="topbar">
+        <div class="brand">For Purva <span>♥</span></div>
+        <button id="musicButton" class="icon-btn" type="button" aria-label="Play our song">♫</button>
+      </header>
+
+      <div class="page-shell">
+        <section class="countdown-hero reveal">
+          <p class="eyebrow">The little wait</p>
+          <h2 id="countdownTitle">Every day brings us closer. <span>❤️</span></h2>
+          <p class="hero-copy">Every day that passes brings us one day closer to your special day.</p>
+
+          <div class="timer" aria-live="polite">
+            <div class="timer-box glass"><strong id="days">0</strong><span>Days</span></div>
+            <div class="timer-box glass"><strong id="hours">0</strong><span>Hours</span></div>
+            <div class="timer-box glass"><strong id="minutes">0</strong><span>Minutes</span></div>
+            <div class="timer-box glass"><strong id="seconds">0</strong><span>Seconds</span></div>
+          </div>
+        </section>
+
+        <section class="calendar-section reveal" aria-labelledby="calendarTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Our little calendar</p>
+              <h3 id="calendarTitle">One day at a time</h3>
+            </div>
+            <span class="date-pill">September 2 · 2026</span>
+          </div>
+          <div id="calendarGrid" class="calendar-grid"></div>
+        </section>
+
+        <section class="waiting-note glass reveal">
+          <span class="heart-pulse">♥</span>
+          <div>
+            <h3>Something beautiful is waiting.</h3>
+            <p>When your day arrives, this little countdown will turn into your birthday surprise.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="birthdayScreen" class="hidden birthday-screen" aria-labelledby="birthdayTitle">
+      <header class="topbar birthday-topbar">
+        <div class="brand">For Purva <span>♥</span></div>
+        <button id="birthdayMusicButton" class="icon-btn" type="button" aria-label="Play our song">♫</button>
+      </header>
+
+      <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+
+      <div class="birthday-shell">
+        <section class="birthday-hero reveal">
+          <div class="gift-visual" aria-hidden="true">
+            <div class="gift-ribbon"></div>
+            <div class="gift-box">♥</div>
+            <div class="gift-lid"></div>
+          </div>
+          <p class="eyebrow">September 2 · Your day</p>
+          <h2 id="birthdayTitle">Happy Birthday, Purva <span>❤️</span></h2>
+          <p class="birthday-subtitle">Today isn't just your birthday... it's the day the world became a little more beautiful.</p>
+          <p class="from-line">With love, from Durgesh</p>
+          <a class="scroll-btn" href="#memories">See your little surprise ↓</a>
+        </section>
+
+        <section id="memories" class="content-section reveal" aria-labelledby="memoriesTitle">
+          <div class="section-heading centered">
+            <p class="eyebrow">Little moments</p>
+            <h3 id="memoriesTitle">Memories worth keeping</h3>
+            <p>Replace the four local image files with your favorite photos. Nothing else needs to change.</p>
+          </div>
+
+          <div class="gallery">
+            <button class="photo-card" data-image="images/photo1.jpg" data-caption="A moment I never want to forget." type="button">
+              <span class="photo-placeholder">Your photo<br><small>images/photo1.jpg</small></span>
+              <span class="photo-caption">A moment I never want to forget.</span>
+            </button>
+            <button class="photo-card" data-image="images/photo2.jpg" data-caption="One of my favorite memories with you." type="button">
+              <span class="photo-placeholder">Your photo<br><small>images/photo2.jpg</small></span>
+              <span class="photo-caption">One of my favorite memories with you.</span>
+            </button>
+            <button class="photo-card" data-image="images/photo3.jpg" data-caption="Just you being you — and that is more than enough." type="button">
+              <span class="photo-placeholder">Your photo<br><small>images/photo3.jpg</small></span>
+              <span class="photo-caption">Just you being you — and that is more than enough.</span>
+            </button>
+            <button class="photo-card" data-image="images/photo4.jpg" data-caption="Another page in our story." type="button">
+              <span class="photo-placeholder">Your photo<br><small>images/photo4.jpg</small></span>
+              <span class="photo-caption">Another page in our story.</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="letter-section reveal" aria-labelledby="letterTitle">
+          <div class="letter glass">
+            <p class="eyebrow">A few words for you</p>
+            <h3 id="letterTitle">Dear Purva,</h3>
+            <p>Some people come into our lives and quietly make ordinary days feel a little brighter. You have become that person for me.</p>
+            <p>I am grateful for the conversations, the laughter, the small moments, and all the memories we have collected along the way. They may seem simple when you look at them one by one, but together they mean so much to me.</p>
+            <p>I hope this new year of your life brings you confidence, peace, exciting dreams, and plenty of reasons to smile. I hope you keep becoming the person you want to be, at your own pace, in your own beautiful way.</p>
+            <p>And as life keeps moving forward, I hope we keep finding new places to go, new things to laugh about, and new memories to look back on someday.</p>
+            <p>Thank you for being you, Purva. I am genuinely happy that you are a part of my life.</p>
+            <p class="signature">With all my love,<br><strong>Durgesh ❤️</strong></p>
+          </div>
+        </section>
+
+        <footer class="footer">Made for one very special person · Purva</footer>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button id="closeLightbox" class="close-lightbox" type="button" aria-label="Close photo viewer">×</button>
+    <img id="lightboxImage" src="" alt="">
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <audio id="music" src="audio/our-song.mp3" loop preload="none"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
